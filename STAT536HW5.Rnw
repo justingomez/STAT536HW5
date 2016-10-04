@@ -33,4 +33,15 @@ colnames(Prec) <- c("Precipitation Indices","negative","1950-2003 not sig","posi
 colnames(Temp) <- c("Precipitation Indices","negative","1950-2003 not sig","positive","negative","1900-2003 not sig","positive")
 @
 
+1. 1.	Vincent and Mekis are analyzing if there is climate change in Canada by using updated and analysis methods and universal practices that are now implemented across the world. Vincent and Mekis want a consistent analysis of climate change in Canada that can be compared or used with data that has been collected around the world. The paper by Vincet and Mekis addresses the links between the temperature and precipitation indices. The first half and second half of the century have probability functions compared
+
+2. 1.	The response variables are temperature indices; frost days, cold days, cold nights, summer days, warm days, warm nights, diurnal temperature range, standard deviation of Tmean. The precipitation indices are; annual snowfall precipitation, snow to total precipitation ratio, days with precipitation, days with rain, simple day intensity of index of P, simple day intensity index of R, max number of consecutive dry days of P, highest 5 day precipitation amount, very wet days ( > 95th percentile), heavy P days (> 10 mm). The diurnal temperature range is the mean annual difference between the daily max and the daily minimum temperatures. Dry days is the sum of days where there is no precipitation, trace measurements of precipitation are ignored when calculating the maximum number of consecutive dry days since trace precipitation does not do much to alleviate the conditions.  
+
+3. 1.	Vincent and Mekis use a model of Yt = U + Tt + vt. The trend component of the model Tt = Bt where B is the slpe of the linear regression between climate and time. The trend is assumed to be linear. The trend is assumed linear to simplify calculations. The error term of the model is calculated using an AR(1) process where lags greater than 1 are not considered significant, and the error term in the model is white noise. Ø is computed by a first guess directly from the data set, and is then used to remove autocorrelation from the time series model. B is calculated along with the significance level from the de-autocorrelated time series model by computing a simple robust estimator using Kendall’s rank correlation tau (median of slopes obtained from all possible combinations of two points in the series). B is then used to remove trend from the original series, Ø is calculated again from the new series. This trend is continued until the difference in iterations is small enough for B and Ø. Trend is analyzed at the 5\% significance level. This method is similar to methods we use to calculate power when we don’t know what t-values to use in the preliminary calculations, it allows us to start with an estimate and refine it until we have a very good approximation of the statistic of interest. 
+
+
+
+
+
+
 \end{document}
