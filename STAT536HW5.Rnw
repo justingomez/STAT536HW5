@@ -84,6 +84,7 @@ The total number of tests run for the short series is 3441, the total number of 
 \item %5
 
 \item %6
+We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
 \begin{enumerate}
 \item %a
 
