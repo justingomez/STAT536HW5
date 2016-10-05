@@ -44,8 +44,42 @@ colnames(Prec) <- c("Precipitation Indices","negative","1950-2003 not sig",
                     "positive","negative","1900-2003 not sig","positive")
 colnames(Temp) <- c("Precipitation Indices","negative","1950-2003 not sig",
                     "positive","negative","1900-2003 not sig","positive")
-@
 
+#finds the maximum and minimum number of observations in the data
+#SFp & SFt are Full series for precipitation and temp
+#SSp & SSt are short series for precipitation and temp
+SFp <- NULL; SSp <- NULL
+PrecSum <- Prec[,-1]
+FullPrec <- PrecSum[,-c(1,2,3)]
+ShortPrec <- PrecSum[,-c(4,5,6)]
+for(i in 1:10){
+  SFp[i] <- sum(FullPrec[i,])
+  SSp[i] <- sum(ShortPrec[i,])
+}
+SFt <- NULL; SSt <- NULL
+TempSum <- Temp[,-1]
+FullTemp <- TempSum[,-c(1,2,3)]
+ShortTemp <- TempSum[,-c(4,5,6)]
+for(i in 1:8){
+  SFt[i] <- sum(ShortTemp[i,])
+  SSt[i] <- sum(ShortTemp[i,])
+}
+#total number of tests for full time series
+sum(SFt,SFp)
+#total number of tests for short time series
+sum(SSt,SSp)
+#number of significant tests for full time series
+sum(SFt,SFp)-sum(FullTemp[,2],FullPrec[,2])
+#number of significant tests for short time series
+sum(SSt,SSp)-sum(ShortPrec[,2],ShortTemp[,2])
+
+#max and min number of tests performed accros variables for full
+#time series and short time series
+c(max(SFt,SFp),max(SSt,SSp))
+c(min(SFt,SFp),min(SSt,SSp))
+@
+%Still need to finish write up, got numerical results though
+The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315.
 
 \item %5
 
