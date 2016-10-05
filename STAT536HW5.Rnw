@@ -34,6 +34,7 @@ The researchers are conducting their analysis with eighteen variables, eight of 
 Vincent and Mekis use a model of $Y_t = \mu + \beta t + \phi Y_{t-1} + \epsilon_t$. The trend component of the model $\beta$ t where $\beta$ is the slope of the linear regression between climate and time. The trend is assumed to be linear to simplify calculations. The error term of the model is calculated using an AR(1) process where lags greater than one are not considered significant, and the error term in the model is white noise. This error term, along with $\phi Y_{t-1}$ makes up the error term for the whole model, and is red noise. $\phi$ is computed by a first guess directly from the data set, and is then used to remove autocorrelation from the time series model. $\beta$ is calculated along with the significance level from the de-autocorrelated time series model by computing a simple robust estimator using Kendall’s rank correlation $\tau$ (median of slopes obtained from all possible combinations of two points in the series). $\beta$ is then used to remove the trend from the original series, $\phi$ is re-calculated from the new series. This trend is continued until the difference in iterations is small enough for $\beta$ and $\phi$ typically 3-12 iterations. Trend is analyzed at the 5\% significance level. This iterative process helps to ensure that the final estimate is the best possible for the model, and it doesn't require that the initial estimate is necessarily the best as the method should converge regardless. The authors used this approach as it provided a slightly smaller magnitude than linear modeling, and results that were significant in a linear model were not in their chosen model.\\
 
 \item %4
+The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315. The maximum and minimum number of tests performed for the short time series are 239 and 148 respectively, for Highest 5 day precipitation amount and Summer days. The maximum and minimum number of tests performed for the full time series are 76 and 59 respectively, for Cold days and the Diurnal temperature range. \\
 <<>>=
 T <- read.csv("Table3.csv")
 Temp <- head(T,8)
@@ -65,27 +66,23 @@ for(i in 1:8){
   SSt[i] <- sum(ShortTemp[i,])
 }
 #total number of tests for full time series
-sum(SFt,SFp)
+a<-sum(SFt,SFp)
 #total number of tests for short time series
-sum(SSt,SSp)
+b<-sum(SSt,SSp)
 #number of significant tests for full time series
-sum(SFt,SFp)-sum(FullTemp[,2],FullPrec[,2])
+c<-sum(SFt,SFp)-sum(FullTemp[,2],FullPrec[,2])
 #number of significant tests for short time series
-sum(SSt,SSp)-sum(ShortPrec[,2],ShortTemp[,2])
+d<-sum(SSt,SSp)-sum(ShortPrec[,2],ShortTemp[,2])
 
 #max and min number of tests performed accros variables for full
 #time series and short time series
-c(max(SFt,SFp),max(SSt,SSp))
-c(min(SFt,SFp),min(SSt,SSp))
+e<-c(max(SFt,SFp),max(SSt,SSp))
+f<-c(min(SFt,SFp),min(SSt,SSp))
 @
-The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315. The maximum and minimum number of tests performed for the short time series are 239 and 148 respectively, for Highest 5 day precipitation amount and Summer days. The maximum and minimum number of tests performed for the full time series are 76 and 59 respectively, for Cold days and the Diurnal temperature range. 
 
 \item %5
-When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results. Thus, out of the  3441 tests, we would expect 3269 to correctly identify "significant" trends in the indices. 
-
-Variables that do not appear to have much of an effect include: Standard Deviation of tmean, Diurnal Temp Range, Max Number of Consecutive Dry Days, Highest 5-Day Concentration, Very Wet Days, and Heavy Precip Days. The expected number of significant effects for all of these variables is higher than what we ended up seeing; thus, there is little evidence that these effects are significant in either model. 
-
-
+When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results. Thus, out of the  3441 tests, we would expect 3269 to correctly identify "significant" trends in the indices.\\
+Variables that do not appear to have much of an effect include: Standard Deviation of tmean, Diurnal Temp Range, Max Number of Consecutive Dry Days, Highest 5-Day Concentration, Very Wet Days, and Heavy Precip Days. The expected number of significant effects for all of these variables is higher than what we ended up seeing; thus, there is little evidence that these effects are significant in either model.\\
 
 \item %6
 We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
@@ -98,9 +95,9 @@ It is difficult to tell if there is any kind of spatial structure present in the
 \end{enumerate}
 
 \item %7
-We might have considered several different strategies had we conducted this analysis. First, the authors discuss their parameter estimates and their statistical significance; however, they do not display their estimates, p-values and effect sizes in a table for the reader to see. We think that it would be reasonable (and helpful) to display both the p-values obtained for their effect estimates as well as the associated effect sizes, so that readers can determine if statistically significant changes are in fact practiclally significant. Table 3 could be reworked to more specifically define "significant" to include both statistically and practically significant trends - this would give a better idea of how many trends are actually worth examining.  \\
+We might have considered several different strategies had we conducted this analysis. First, the authors discuss their parameter estimates and their statistical significance; however, they do not display their estimates, p-values and effect sizes in a table for the reader to see. We think that it would be reasonable (and helpful) to display both the p-values obtained for their effect estimates as well as the associated effect sizes, so that readers can determine if statistically significant changes are in fact practiclally significant. Table 3 could be reworked to more specifically define "significant" to include both statistically and practically significant trends - this would give a better idea of how many trends are actually worth examining.\\
 
-Further, the researchers used Kendall's Rank Correlation in order to deal with the skewness in the data. They mention that there are issues with large outliers and cite this as a reason to use rank-based estimates rather than raw ones. However, we might have considered using a log transformation (specifically for regions with especially skewed observations) because it might mitigate the effect of abnormally small or large data values.
+Further, the researchers used Kendall's Rank Correlation in order to deal with the skewness in the data. They mention that there are issues with large outliers and cite this as a reason to use rank-based estimates rather than raw ones. However, we might have considered using a log transformation (specifically for regions with especially skewed observations) because it might mitigate the effect of abnormally small or large data values.\\
 
 \end{enumerate}
 \end{document}
