@@ -92,7 +92,10 @@ The total number of tests run for the short series is 3441, the total number of 
 \end{enumerate}
 
 \item %7
-We might have considered several different strategies had we conducted this analysis. 
+We might have considered several different strategies had we conducted this analysis. First, the authors discuss their parameter estimates and their statistical significance; however, they do not display their estimates, p-values and effect sizes in a table for the reader to see. We think that it would be reasonable (and helpful) to display both the p-values obtained for their effect estimates as well as the associated effect sizes, so that readers can determine if statistically significant changes are in fact practiclally significant. Table 3 could be reworked to more specifically define "significant" to include both statistically and practically significant trends - this would give a better idea of how many trends are actually worth examining.  \\
+Further, the 
+
+
 
 \end{enumerate}
 \end{document}
