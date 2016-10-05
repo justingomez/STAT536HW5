@@ -87,9 +87,10 @@ The total number of tests run for the short series is 3441, the total number of 
 We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
 \begin{enumerate}
 \item %a
+The panel displays information about the number of days each site experienced minimum temperatures in the 10th percentile. The dots indicate stations that have significant trends at the 5\% level. In this graphic, all of the dots are blue, indicating that those sites have negative trends, while the positive trends (red x's) are not significant. This indicates that there have been fewer and fewer cold nights over time. The display seems effective enough, but you have to compare the size of dots in order to get an idea for the strength of the trend, which doesn't seem like the best method. Maybe having different shapes for $\pm$10, $\pm$30, and $\pm50$ and then color them according to positive and negative.\\
 
 \item %b
-
+It is difficult to tell if there is any kind of spatial structure present in these data. There appear to be fewer positive trends than negative trends in the north, significant or not, but this may be due to the lack of stations in the northern areas.\\
 \end{enumerate}
 
 \item %7
