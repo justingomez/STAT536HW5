@@ -83,7 +83,10 @@ The total number of tests run for the short series is 3441, the total number of 
 \item %5
 When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results. Thus, out of the  3441 tests, we would expect 3269 to correctly identify "significant" trends in the indices. 
 
-Variables that do not appear to have much of an effect include: Standard Deviation of tmean, Diurnal Temp Range, Max Number of Consecutive Dry Days, Highest 5-Day Concentration, Very Wet Days, and Heavy Precip Days. 
+Variables that do not appear to have much of an effect include: Standard Deviation of tmean, Diurnal Temp Range, Max Number of Consecutive Dry Days, Highest 5-Day Concentration, Very Wet Days, and Heavy Precip Days. The expected number of significant effects for all of these variables is higher than what we ended up seeing; thus, there is little evidence that these effects are significant in either model. 
+
+
+
 \item %6
 We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
 \begin{enumerate}
