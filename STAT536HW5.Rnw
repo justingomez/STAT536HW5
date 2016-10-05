@@ -82,7 +82,9 @@ c(min(SFt,SFp),min(SSt,SSp))
 The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315.
 
 \item %5
+When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results. Thus, out of the  3441 tests, we would expect 3269 to correctly identify "significant" trends in the indices. 
 
+Variables that do not appear to have much of an effect include: Standard Deviation of tmean, Diurnal Temp Range, Max Number of Consecutive Dry Days, Highest 5-Day Concentration, Very Wet Days, and Heavy Precip Days. 
 \item %6
 \begin{enumerate}
 \item %a
