@@ -78,8 +78,7 @@ sum(SSt,SSp)-sum(ShortPrec[,2],ShortTemp[,2])
 c(max(SFt,SFp),max(SSt,SSp))
 c(min(SFt,SFp),min(SSt,SSp))
 @
-%Still need to finish write up, got numerical results though
-The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315. The maximum and minimum number of tests performed for the short time series are 239 and 59 respectively, for Highest 5 day precipitation amount and Summer days. The maximum and minimum number of tests performed for the full time series are 76 and 59 respectively, for Cold days and the Diurnal temperature range. 
+The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315. The maximum and minimum number of tests performed for the short time series are 239 and 148 respectively, for Highest 5 day precipitation amount and Summer days. The maximum and minimum number of tests performed for the full time series are 76 and 59 respectively, for Cold days and the Diurnal temperature range. 
 
 \item %5
 
