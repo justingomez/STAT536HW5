@@ -81,8 +81,10 @@ f<-c(min(SFt,SFp),min(SSt,SSp))
 @
 
 \item %5
-When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results. Thus, out of the  3441 tests, we would expect 3269 to correctly identify "significant" trends in the indices.\\
-Variables that do not appear to have much of an effect include: Standard Deviation of tmean, Diurnal Temp Range, Max Number of Consecutive Dry Days, Highest 5-Day Concentration, Very Wet Days, and Heavy Precip Days. The expected number of significant effects for all of these variables is higher than what we ended up seeing; thus, there is little evidence that these effects are significant in either model.\\
+When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results if they are present. For hypothesis tests we operate under the assumption that the null hypothesis is true; therefore, we ought to conclude that no trend is present 95 percent of the time and conclude that a trend is present the other 5 percent.  \\
+Thus, we expect roughly 162 of the short trends to be statistically significant and 64 of the longer trends to be significant. However, we see that they are getting a much higher number than this in their runs. 
+\\
+In both models it appears that Days has the largest difference between the observed number of significant trends and the expected number. This is \\
 
 \item %6
 We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
