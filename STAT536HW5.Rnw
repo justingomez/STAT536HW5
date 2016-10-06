@@ -82,9 +82,19 @@ f<-c(min(SFt,SFp),min(SSt,SSp))
 
 \item %5
 When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results if they are present. For hypothesis tests we operate under the assumption that the null hypothesis is true; therefore, we ought to conclude that no trend is present 95 percent of the time and conclude that a trend is present the other 5 percent.  \\
-Thus, we expect roughly 162 of the short trends to be statistically significant and 64 of the longer trends to be significant. However, we see that they are getting a much higher number than this in their runs. 
+Thus, we expect roughly 162 of the short trends to be statistically significant and 64 of the longer trends to be significant. However, we see that they are getting a much higher number than this in their runs; they found 919 and 580 significant trends in the short and long runs, respectively. This is, in part, due to the fact that when running many tests at a 5 percent level of significance without some sort of multiple comparisons adjustment, the true error rate will be much higher than expected. 
 \\
-In both models it appears that Days has the largest difference between the observed number of significant trends and the expected number. This is \\
+In both models it appears that Days has the largest difference between the observed number of significant trends and the expected number. For the variables where the difference is very small, we expect that there is little evidence that a trend is present; these variables are Standard Deviation of tMean, Highest 5-Day Precipitation, and Very Wet Days. \\
+
+<<>>=
+#Hadley Wickham RULES!
+if(!require(tibble)){install.packages(tibble)}
+tbl <- read.csv("Table3updated.csv", header = TRUE, as.is=TRUE)
+tibble(tbl$Temperature,tbl$Neg,tbl$NS, tbl$Pos, tbl$Total, tbl$Diff,tbl$Temperature.1, tbl$Neg.1, tbl$NS.1, tbl$Pos.1, tbl$Total.1, tbl$Diff.1)
+    @
+
+
+
 
 \item %6
 We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
