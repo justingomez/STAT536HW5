@@ -94,9 +94,6 @@ tbl <- read.csv("Table3updated.csv", header = TRUE, as.is=TRUE)
 tibble(tbl$Temperature,tbl$Neg,tbl$NS, tbl$Pos, tbl$Total, tbl$Diff,tbl$Temperature.1, tbl$Neg.1, tbl$NS.1, tbl$Pos.1, tbl$Total.1, tbl$Diff.1)
 @
 
-
-
-
 \item %6
 We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
 \begin{enumerate}
