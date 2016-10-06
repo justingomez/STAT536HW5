@@ -16,7 +16,6 @@
 \renewcommand{\footrulewidth}{0.2pt}
 \setlength{\parindent}{0pt}
 \begin{document}
-\SweaveOpts{concordance=TRUE}
 
 <<setup, include=FALSE, cache=FALSE>>=
 library(knitr)
@@ -26,16 +25,17 @@ opts_chunk$set(echo=TRUE,results='markup',message=FALSE, comment=NA,warning=FALS
 
 \begin{enumerate}
 \item %1
-Vincet and Meks are interested in studying trends in daily and extreme temperatures and precipications in Canada between 1900 and 2003, splitting their study into two time frames, one on the full range and another on 1950-2003. Their goal is to analyze these trends through well defined indices on both temperature and precipitation to better characterize Canada's climate, and update previous research in the area. They are also exploring links betwen their temperature and precipitation indices, and summarizing their results on a station-by-station bases as well as nationwide.\\   
+Vincet and Mekis are interested in studying trends in daily and extreme temperatures and precipitations in Canada between 1900 and 2003, splitting their study into two time frames, one on the full range and another on 1950-2003. Their goal is to analyze these trends through well defined indices on both temperature and precipitation to better characterize Canada's climate, and update previous research in the area. They are also exploring links between their temperature and precipitation indices, and summarizing their results on a station-by-station bases as well as nationwide.\\   
 
 \item %2
-The researchers are conducting their analysis with eighteen variables, eight of which are temperature variables, and the remaining ten are precipitation variables. To create their temperature variables, Vincent and Mekis defined different conditions that they were interested in studying to obtain the number of days that fit their description. For example, the variable "warm night" looks at the number of days that had a minimum temperature in the 90th percentile of all observations. Thus, it examines the number of days that had unusually warm nighttime temperatures. The researchers note differences in trends in nighttime vs. daytime temperatures, something this variable helps to explain. They defined some of their precipitation variables in similar way to look at the number of days that met certain criteria. Many of these variables, however, look at how much precipitation the area received. For example, the variable "highest 5-day precipitation amount" looks at five day periods and provides the maximum precipitation sum during that period.\\
+The researchers are conducting their analysis with eighteen variables, eight of which are temperature variables, and the remaining ten are precipitation variables. To create their temperature variables, Vincent and Mekis defined different conditions that they were interested in studying to obtain the number of days that fit their description. For example, the variable ``warm night" looks at the number of days that had a minimum temperature in the 90th percentile of all observations. Thus, it examines the number of days that had unusually warm nighttime temperatures. The researchers note differences in trends in nighttime vs. daytime temperatures, something this variable helps to explain. They defined some of their precipitation variables in similar way to look at the number of days that met certain criteria. Many of these variables, however, look at how much precipitation the area received. For example, the variable ``highest 5-day precipitation amount" looks at five day periods and provides the maximum precipitation sum during that period.\\
 
 \item %3
-Vincent and Mekis use a model of $Y_t = \mu + \beta t + \phi Y_{t-1} + \epsilon_t$. The trend component of the model $\beta$ t where $\beta$ is the slope of the linear regression between climate and time. The trend is assumed to be linear to simplify calculations. The error term of the model is calculated using an AR(1) process where lags greater than one are not considered significant, and the error term in the model is white noise. This error term, along with $\phi Y_{t-1}$ makes up the error term for the whole model, and is red noise. $\phi$ is computed by a first guess directly from the data set, and is then used to remove autocorrelation from the time series model. $\beta$ is calculated along with the significance level from the de-autocorrelated time series model by computing a simple robust estimator using Kendall’s rank correlation $\tau$ (median of slopes obtained from all possible combinations of two points in the series). $\beta$ is then used to remove the trend from the original series, $\phi$ is re-calculated from the new series. This trend is continued until the difference in iterations is small enough for $\beta$ and $\phi$ typically 3-12 iterations. Trend is analyzed at the 5\% significance level. This iterative process helps to ensure that the final estimate is the best possible for the model, and it doesn't require that the initial estimate is necessarily the best as the method should converge regardless. The authors used this approach as it provided a slightly smaller magnitude than linear modeling, and results that were significant in a linear model were not in their chosen model.\\
+Vincent and Mekis use a model of $Y_t = \mu + \beta t + \phi Y_{t-1} + \epsilon_t$. The trend component of the model $\beta$ t where $\beta$ is the slope of the linear regression between climate and time. The trend is assumed to be linear to simplify calculations. The error term of the model is calculated using an AR(1) process where lags greater than one are not considered significant, and the error term in the model is white noise. This error term, along with $\phi Y_{t-1}$ makes up the error term for the whole model, and is red noise. $\phi$ is computed by a first guess directly from the data set, and is then used to remove auto-correlation from the time series model. $\beta$ is calculated along with the significance level from the de-auto-correlated time series model by computing a simple robust estimator using Kendall’s rank correlation $\tau$ (median of slopes obtained from all possible combinations of two points in the series). $\beta$ is then used to remove the trend from the original series, $\phi$ is re-calculated from the new series. This trend is continued until the difference in iterations is small enough for $\beta$ and $\phi$ typically 3-12 iterations. Trend is analyzed at the 5\% significance level. This iterative process helps to ensure that the final estimate is the best possible for the model, and it doesn't require that the initial estimate is necessarily the best as the method should converge regardless. The authors used this approach as it provided a slightly smaller magnitude than linear modeling, and results that were significant in a linear model were not in their chosen model.\\
 
 \item %4
 The total number of tests run for the short series is 3441, the total number of tests run for the full series is 2023. The number of significant tests for the short series is 919 and the number of significant tests for the full series is 1315. The maximum and minimum number of tests performed for the short time series are 239 and 148 respectively, for Highest 5 day precipitation amount and Summer days. The maximum and minimum number of tests performed for the full time series are 76 and 59 respectively, for Cold days and the Diurnal temperature range. \\
+\newpage
 <<>>=
 T <- read.csv("Table3.csv")
 Temp <- head(T,8)
@@ -80,9 +80,9 @@ d<-sum(SSt,SSp)-sum(ShortPrec[,2],ShortTemp[,2])
 e<-c(max(SFt,SFp),max(SSt,SSp))
 f<-c(min(SFt,SFp),min(SSt,SSp))
 @
-
+\newpage
 \item %5
-When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify "significant" results if they are present. For hypothesis tests we operate under the assumption that the null hypothesis is true; therefore, we ought to conclude that no trend is present 95 percent of the time and conclude that a trend is present the other 5 percent.  \\
+When tests are performed at the 95 percent Level, we expect roughly 95 out of 100 to tests to correctly identify ``significant" results if they are present. For hypothesis tests we operate under the assumption that the null hypothesis is true; therefore, we ought to conclude that no trend is present 95 percent of the time and conclude that a trend is present the other 5 percent.  \\
 Thus, we expect roughly 162 of the short trends to be statistically significant and 64 of the longer trends to be significant. However, we see that they are getting a much higher number than this in their runs; they found 919 and 580 significant trends in the short and long runs, respectively. This is, in part, due to the fact that when running many tests at a 5 percent level of significance without some sort of multiple comparisons adjustment, the true error rate will be much higher than expected. 
 \\
 In both models it appears that Days has the largest difference between the observed number of significant trends and the expected number. For the variables where the difference is very small, we expect that there is little evidence that a trend is present; these variables are Standard Deviation of tMean, Highest 5-Day Precipitation, and Very Wet Days. \\
@@ -91,11 +91,13 @@ In both models it appears that Days has the largest difference between the obser
 
 if(!require(tibble)){install.packages(tibble)}
 tbl <- read.csv("Table3updated.csv", header = TRUE, as.is=TRUE)
-tibble(tbl$Temperature,tbl$Neg,tbl$NS, tbl$Pos, tbl$Total, tbl$Diff,tbl$Temperature.1, tbl$Neg.1, tbl$NS.1, tbl$Pos.1, tbl$Total.1, tbl$Diff.1)
+tibble(tbl$Temperature,tbl$Neg,tbl$NS, tbl$Pos, tbl$Total, tbl$Diff,
+       tbl$Temperature.1, tbl$Neg.1, tbl$NS.1, tbl$Pos.1, tbl$Total.1, 
+       tbl$Diff.1)
 @
-
+\newpage
 \item %6
-We will be examining the "Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
+We will be examining the ``Cold Nights" panel in the trends of four temperature indices for 1950-2003.\\
 \begin{enumerate}
 \item %a
 The panel displays information about the number of days each site experienced minimum temperatures in the 10th percentile. The dots indicate stations that have significant trends at the 5\% level. In this graphic, all of the dots are blue, indicating that those sites have negative trends, while the positive trends (red x's) are not significant. This indicates that there have been fewer and fewer cold nights over time. The display seems effective enough, but you have to compare the size of dots in order to get an idea for the strength of the trend, which doesn't seem like the best method. Maybe having different shapes for $\pm$10, $\pm$30, and $\pm50$ and then color them according to positive and negative.\\
@@ -105,7 +107,7 @@ It is difficult to tell if there is any kind of spatial structure present in the
 \end{enumerate}
 
 \item %7
-We might have considered several different strategies had we conducted this analysis. First, the authors discuss their parameter estimates and their statistical significance; however, they do not display their estimates, p-values and effect sizes in a table for the reader to see. We think that it would be reasonable (and helpful) to display both the p-values obtained for their effect estimates as well as the associated effect sizes, so that readers can determine if statistically significant changes are in fact practically significant. Table 3 could be reworked to more specifically define "significant" to include both statistically and practically significant trends - this would give a better idea of how many trends are actually worth examining.\\
+We might have considered several different strategies had we conducted this analysis. First, the authors discuss their parameter estimates and their statistical significance; however, they do not display their estimates, p-values and effect sizes in a table for the reader to see. We think that it would be reasonable (and helpful) to display both the p-values obtained for their effect estimates as well as the associated effect sizes, so that readers can determine if statistically significant changes are in fact practically significant. Table 3 could be reworked to more specifically define ``significant" to include both statistically and practically significant trends - this would give a better idea of how many trends are actually worth examining.\\
 
 Further, the researchers used Kendall's Rank Correlation in order to deal with the skewness in the data. They mention that there are issues with large outliers and cite this as a reason to use rank-based estimates rather than raw ones. However, we might have considered using a log transformation (specifically for regions with especially skewed observations) because it might mitigate the effect of abnormally small or large data values.\\
 
