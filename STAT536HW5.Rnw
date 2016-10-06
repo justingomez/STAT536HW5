@@ -87,7 +87,7 @@ Thus, we expect roughly 162 of the short trends to be statistically significant 
 In both models it appears that Days has the largest difference between the observed number of significant trends and the expected number. For the variables where the difference is very small, we expect that there is little evidence that a trend is present; these variables are Standard Deviation of tMean, Highest 5-Day Precipitation, and Very Wet Days. \\
 
 <<>>=
-#Hadley Wickham RULES!
+
 if(!require(tibble)){install.packages(tibble)}
 tbl <- read.csv("Table3updated.csv", header = TRUE, as.is=TRUE)
 tibble(tbl$Temperature,tbl$Neg,tbl$NS, tbl$Pos, tbl$Total, tbl$Diff,tbl$Temperature.1, tbl$Neg.1, tbl$NS.1, tbl$Pos.1, tbl$Total.1, tbl$Diff.1)
