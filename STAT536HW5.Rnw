@@ -92,7 +92,7 @@ In both models it appears that Days has the largest difference between the obser
 if(!require(tibble)){install.packages(tibble)}
 tbl <- read.csv("Table3updated.csv", header = TRUE, as.is=TRUE)
 tibble(tbl$Temperature,tbl$Neg,tbl$NS, tbl$Pos, tbl$Total, tbl$Diff,tbl$Temperature.1, tbl$Neg.1, tbl$NS.1, tbl$Pos.1, tbl$Total.1, tbl$Diff.1)
-    @
+@
 
 
 
